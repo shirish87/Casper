@@ -32,7 +32,7 @@ var levels = {
 };
 
 var paths = {
-    scss: './assets/stylesheets/**/*.scss',
+    scss: './assets/css/stylesheets/*.scss',
     css: './assets/css/',
     js: './assets/javascripts/**/*.js',
 };
@@ -52,10 +52,15 @@ gulp.task('build', ['css'], function (/* cb */) {
 });
 
 gulp.task('sass', function () {
-  return gulp.src(paths.scss)
-    .pipe(sass({ sourcemaps: true })
-    .on('error', sass.logError))
-    .pipe(gulp.dest(paths.css))
+    return gulp.src(paths.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('assets/stylesheets/'))
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch(paths.scss, ['sass']);
 });
 
 gulp.task('css', ['sass'], function () {
@@ -67,22 +72,23 @@ gulp.task('css', ['sass'], function () {
         cssnano()
     ];
 
-    return gulp.src(paths.css + '*.css')
+    return gulp.src(paths.css + '**/*.css')
         .on('error', swallowError)
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('assets/built/'))
+        .pipe(gulp.dest('assets/stylesheets/'))
         .pipe(livereload());
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['sass:watch'], function () {
     gulp.watch(paths.css + '**', ['css']);
 });
 
 gulp.task('zip', ['css'], function () {
     return gulp.src([
         '**',
+        '!assets/css', '!assets/css/**',
         '!node_modules', '!node_modules/**',
         '!dist', '!dist/**'
     ])

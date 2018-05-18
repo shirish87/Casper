@@ -39,7 +39,7 @@ $ yarn install
 $ yarn dev
 ```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+Now you can edit `/assets/css/` files, which will be compiled to `/assets/stylesheets/` automatically.
 
 The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
 
