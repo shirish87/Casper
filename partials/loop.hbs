@@ -1,0 +1,41 @@
+{{!-- Previous/next page links - only displayed on page 2+ --}}
+<!--
+<div class="extra-pagination inner">
+    {{pagination}}
+</div>
+-->
+
+{{!-- This is the post loop - each post will be output using this markup --}}
+{{#foreach posts}}
+{{^has tag="private"}}
+<article class="blog-post">
+    <header>
+        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+        <span class="blog-category">
+            {{#if tags}}
+                {{#foreach tags}}
+                    {{#if description}}
+                        <i class="fa fa-{{description}}"></i>
+                    {{/if}}
+
+                    <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                {{/foreach}}
+            {{/if}}
+        </span>
+
+        <h2><a href="{{url}}">{{title}}</a></h2>
+    </header>
+
+    <section class="post-excerpt">
+        {{content words="42"}}
+
+        <span class="post-excerpt-more">
+            <a class="read-more" href="{{url}}">Read more &raquo;</a>
+        </span>
+    </section>
+</article>
+{{/has}}
+{{/foreach}}
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}

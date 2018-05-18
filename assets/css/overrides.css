@@ -1,0 +1,79 @@
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+}
+
+.blog-post {
+  margin-left: 25px;
+  width: 88%;
+}
+
+.site-footer, .read-next + .site-footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: 2rem;
+}
+
+.post-footer h4, .post-footer p {
+  font-size: 1.2rem;
+}
+
+.author-profile {
+  padding: 0 15px 0rem 15px;
+}
+
+.copyright {
+  float: none;
+}
+
+.share {
+  display: none;
+}
+
+.pagination {
+  font-size: 0.8rem;
+  margin: 1rem auto;
+}
+
+.sidebar {
+  max-width: 245px;
+  font-size: 0.8rem;
+}
+
+.sidebar .sidebar-inner p {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: #aaa;
+}
+
+.sidebar .sidebar-inner {
+  padding-right: 20px;
+}
+
+.sidebar h1.blog-title {
+  font-size: 32px;
+}
+
+.sidebar h2.blog-description {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.extra-pagination {
+  margin-bottom: 3rem;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+.text-muted {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.post-excerpt-more a {
+  color: #5d93ff
+}
